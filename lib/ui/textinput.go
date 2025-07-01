@@ -455,7 +455,15 @@ func (ti *TextInput) Event(event vaxis.Event) bool {
 			ti.index = ti.wordStart()
 			ti.ensureScroll()
 			ti.Invalidate()
+		case key.Matches(vaxis.KeyLeft, vaxis.ModAlt):
+			ti.index = ti.wordStart()
+			ti.ensureScroll()
+			ti.Invalidate()
 		case key.Matches(vaxis.KeyRight, vaxis.ModCtrl):
+			ti.index = ti.nextWordStart()
+			ti.ensureScroll()
+			ti.Invalidate()
+		case key.Matches(vaxis.KeyRight, vaxis.ModAlt):
 			ti.index = ti.nextWordStart()
 			ti.ensureScroll()
 			ti.Invalidate()
