@@ -104,10 +104,7 @@ func NewComposer(
 		h = new(mail.Header)
 	}
 
-	composePath := xdg.StatePath("aerc", "compose")
-	_ = os.MkdirAll(composePath, 0o700)
-
-	email, err := os.CreateTemp(composePath, "aerc-compose-*.eml")
+	email, err := os.CreateTemp("", "aerc-compose-*.eml")
 	if err != nil {
 		// TODO: handle this better
 		return nil, err
